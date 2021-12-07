@@ -19,6 +19,9 @@ function App() {
           a {
             text-decoration: none;
           }
+          button {
+            background-color: transparent;
+          }
           html,
           #root {
             height: 100%;

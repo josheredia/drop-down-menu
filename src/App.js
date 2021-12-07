@@ -1,5 +1,6 @@
 import "./App.css";
 import { Global, css } from "@emotion/react";
+import Menu from "./components/Menu";
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
         `}
       />
       <div className="App">
-        <p>Hi!</p>
+        <Menu />
       </div>
     </>
   );

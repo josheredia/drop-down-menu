@@ -70,29 +70,61 @@ export const SubtitleContent = styled.div`
 `;
 
 function Menu() {
-  const [dis, setDis] = useState([false, false, false, false]);
+  const [displayTitle, setDisplayTitle] = useState([
+    false,
+    false,
+    false,
+    false,
+  ]);
+  const [displaySubtitle, setDisplaySubtitle] = useState(false);
 
   return (
     <MenuContainer>
-      <TitleContainer onClick={() => setDis([!dis[0], false, false, false])}>
-        <Title>Cursos y carreras</Title>
-        {dis[0] && (
+      <TitleContainer
+        onClick={() => setDisplayTitle([!displayTitle[0], false, false, false])}
+        style={
+          displayTitle[0]
+            ? { backgroundColor: "black" }
+            : { backgroundColor: "white" }
+        }
+      >
+        <Title
+          style={displayTitle[0] ? { color: "white" } : { color: "black" }}
+        >
+          Cursos y carreras
+        </Title>
+        {displayTitle[0] && (
           <TitleContent>
             <Subtitle>Código</Subtitle>
             <Subtitle>Data</Subtitle>
-            <Subtitle>UX/UI</Subtitle>
-            <SubtitleContent>
-              <Subtitle>UX Writing</Subtitle>
-              <Subtitle>Research</Subtitle>
-              <Subtitle>Figma</Subtitle>
-            </SubtitleContent>
+            <Subtitle onClick={() => setDisplaySubtitle(!displaySubtitle)}>
+              UX/UI
+            </Subtitle>
+            {displaySubtitle && (
+              <SubtitleContent>
+                <Subtitle>UX Writing</Subtitle>
+                <Subtitle>Research</Subtitle>
+                <Subtitle>Figma</Subtitle>
+              </SubtitleContent>
+            )}
             <Subtitle>Producto</Subtitle>
           </TitleContent>
         )}
       </TitleContainer>
-      <TitleContainer onClick={() => setDis([false, !dis[1], false, false])}>
-        <Title>Lanzamientos</Title>
-        {dis[1] && (
+      <TitleContainer
+        onClick={() => setDisplayTitle([false, !displayTitle[1], false, false])}
+        style={
+          displayTitle[1]
+            ? { backgroundColor: "black" }
+            : { backgroundColor: "white" }
+        }
+      >
+        <Title
+          style={displayTitle[1] ? { color: "white" } : { color: "black" }}
+        >
+          Lanzamientos
+        </Title>
+        {displayTitle[1] && (
           <TitleContent>
             <Subtitle>Lanz 1</Subtitle>
             <Subtitle>Lanz 2</Subtitle>
@@ -100,18 +132,40 @@ function Menu() {
           </TitleContent>
         )}
       </TitleContainer>
-      <TitleContainer onClick={() => setDis([false, false, !dis[2], false])}>
-        <Title>Proyectos</Title>
-        {dis[2] && (
+      <TitleContainer
+        onClick={() => setDisplayTitle([false, false, !displayTitle[2], false])}
+        style={
+          displayTitle[2]
+            ? { backgroundColor: "black" }
+            : { backgroundColor: "white" }
+        }
+      >
+        <Title
+          style={displayTitle[2] ? { color: "white" } : { color: "black" }}
+        >
+          Proyectos
+        </Title>
+        {displayTitle[2] && (
           <TitleContent>
             <Subtitle>Proy 1</Subtitle>
             <Subtitle>Proy 2</Subtitle>
           </TitleContent>
         )}
       </TitleContainer>
-      <TitleContainer onClick={() => setDis([false, false, false, !dis[3]])}>
-        <Title>Comunidad</Title>
-        {dis[3] && (
+      <TitleContainer
+        onClick={() => setDisplayTitle([false, false, false, !displayTitle[3]])}
+        style={
+          displayTitle[3]
+            ? { backgroundColor: "black" }
+            : { backgroundColor: "white" }
+        }
+      >
+        <Title
+          style={displayTitle[3] ? { color: "white" } : { color: "black" }}
+        >
+          Comunidad
+        </Title>
+        {displayTitle[3] && (
           <TitleContent>
             <Subtitle>Contacto</Subtitle>
           </TitleContent>

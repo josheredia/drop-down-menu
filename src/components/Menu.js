@@ -8,7 +8,6 @@ export const MenuContainer = styled.div`
 `;
 
 export const TitleContainer = styled.div`
-  padding: 12px;
   background: #ffffff;
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.12), 0px 2px 3px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -20,7 +19,7 @@ export const Title = styled.button`
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
-
+  padding: 12px;
   color: #000000;
 `;
 
@@ -30,8 +29,6 @@ export const TitleContent = styled.div`
   left: 0px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px 24px;
 
   min-width: 75%;
 
@@ -44,15 +41,15 @@ export const TitleContent = styled.div`
 
 export const Subtitle = styled.button`
   display: flex;
-  justify-content: center;
-  padding: 12px 0px;
+  justify-content: flex-start;
+  padding: 12px 24px;
 
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 20px;
-
+  width: 100%;
   color: #000000;
 `;
 
@@ -81,7 +78,6 @@ function Menu() {
   return (
     <MenuContainer>
       <TitleContainer
-        onClick={() => setDisplayTitle([!displayTitle[0], false, false, false])}
         style={
           displayTitle[0]
             ? { backgroundColor: "black" }
@@ -90,15 +86,38 @@ function Menu() {
       >
         <Title
           style={displayTitle[0] ? { color: "white" } : { color: "black" }}
+          onClick={() =>
+            setDisplayTitle([!displayTitle[0], false, false, false])
+          }
         >
           Cursos y carreras
         </Title>
         {displayTitle[0] && (
           <TitleContent>
-            <Subtitle>Código</Subtitle>
-            <Subtitle>Data</Subtitle>
-            <Subtitle onClick={() => setDisplaySubtitle(!displaySubtitle)}>
+            <Subtitle
+              onClick={() =>
+                setDisplayTitle([!displayTitle[0], false, false, false])
+              }
+            >
+              Código
+            </Subtitle>
+            <Subtitle
+              onClick={() =>
+                setDisplayTitle([!displayTitle[0], false, false, false])
+              }
+            >
+              Data
+            </Subtitle>
+            <Subtitle
+              style={
+                displaySubtitle
+                  ? { backgroundColor: "black", color: "white" }
+                  : { color: "black" }
+              }
+              onClick={() => setDisplaySubtitle(!displaySubtitle)}
+            >
               UX/UI
+              <p> →</p>
             </Subtitle>
             {displaySubtitle && (
               <SubtitleContent>
@@ -107,7 +126,13 @@ function Menu() {
                 <Subtitle>Figma</Subtitle>
               </SubtitleContent>
             )}
-            <Subtitle>Producto</Subtitle>
+            <Subtitle
+              onClick={() =>
+                setDisplayTitle([!displayTitle[0], false, false, false])
+              }
+            >
+              Producto
+            </Subtitle>
           </TitleContent>
         )}
       </TitleContainer>

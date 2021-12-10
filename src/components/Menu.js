@@ -5,12 +5,19 @@ export const MenuContainer = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 8px;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const TitleContainer = styled.div`
   background: #ffffff;
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.12), 0px 2px 3px rgba(0, 0, 0, 0.2);
   position: relative;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 export const Title = styled.button`
@@ -21,6 +28,9 @@ export const Title = styled.button`
   line-height: 20px;
   padding: 12px;
   color: #000000;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 export const TitleContent = styled.div`
@@ -37,6 +47,10 @@ export const TitleContent = styled.div`
   border: 4px solid #000000;
 
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.12), 0px 6px 6px rgba(0, 0, 0, 0.2);
+  @media (max-width: 700px) {
+    position: relative;
+    top: 0px;
+  }
 `;
 
 export const Subtitle = styled.button`
